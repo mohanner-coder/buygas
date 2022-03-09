@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BuyGas</title>
+   <link rel="stylesheet" href="./index.css" type="text/css" />
+   <script src="https://kit.fontawesome.com/4e6fa00cd9.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+   <header>
+          
+      <nav>
+         
+          <section class="f-column">
+              <div id="orange-header" class="topmenu">
+                  <div style="height: 100%;" class="container f-row align-items-center">
+                     <!--<div>
+                          Call Us (+234)81-1975-5366
+                      </div>-->
+                      <div>
+                          Contact@Buygas.ng
+                      </div>
+                      <div>
+                          Facebook
+                      </div>
+                      <div>
+                          Twitter
+                      </div>
+                      <div>
+                          Instagram
+                      </div>
+                  </div>
+              </div>
+              
+              <div id="white-header">
+                  <div style="height: 100%;" class="container f-row align-items-center">
+                      
+                      <div >
+                          <img width="100px" height="95px" src="./logo.png" />
+                      </div>
+                      
+                      <div class="f-grow"></div>
+                      <div id="menu" class="f-row align-items-center hide">
+                          <a href="./index.html">Home</a>
+                          <a href="./order-gas.html">Order Gas</a>
+                          <a href="./about-us.html">About Us</a>
+                          <a href="./contact-us.html">Contact Us</a>
+                          <a href="./login.html">Login</a>
+                     
+                      </div>
+
+                      <button class="nav-toggle">
+                          <label for="toggle"><i class="fas fa-bars"></i></label>
+                         
+                      </button>
+                      
+                  </div>
+              </div>
+          </section>
+      </nav>
+  </header>
+
+
+
+      <div id="login-page" class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Login Form
+            </div>
+            <div class="title signup">
+               Signup Form
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">Login</label>
+               <label for="signup" class="slide signup">Signup</label>
+               <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+               <form action="#" id="login-form" class="login">
+                  <div class="field">
+                     <input type="text" placeholder="Email Address" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Password" required>
+                  </div>
+                  <div class="pass-link">
+                     <a href="#">Forgot password?</a>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Login">
+                  </div>
+                  <div class="signup-link">
+                     Not a member? <a href="">Signup now</a>
+                  </div>
+               </form>
+               <form action="#" id="signup-form" class="signup">
+                  <div class="field">
+                     <input type="text" name="email" placeholder="Email Address" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" name="password" placeholder="Password" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Confirm password" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Signup">
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+
+
+
+
+      <footer id="footer">
+         <nav>
+            <ul class="container f-row align-items-center justify-content-space-between">
+               <li><a href="About us.docx">About Us</a></li>
+               <li><a href="./contact-us.html">Contact Us</a></li>
+               <li><a href="">Privacy</a></li>
+            </ul>
+         </nav>
+         <div class="footer-bottom">
+            &copy; BuyGas.ng |Designed By Victoria Emoka</div>
+      </footer>
+
+      <script>
+         const loginText = document.querySelector(".title-text .login");
+         const loginForm = document.querySelector("form.login");
+         const loginBtn = document.querySelector("label.login");
+         const signupBtn = document.querySelector("label.signup");
+         const signupLink = document.querySelector("form .signup-link a");
+         signupBtn.onclick = (() => {
+            loginForm.style.marginLeft = "-50%";
+            loginText.style.marginLeft = "-50%";
+         });
+         loginBtn.onclick = (() => {
+            loginForm.style.marginLeft = "0%";
+            loginText.style.marginLeft = "0%";
+         });
+         signupLink.onclick = (() => {
+            signupBtn.click();
+            return false;
+         });
+      </script>
+
+      <script>
+         var form = document.getElementById('login-form');
+         form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var data = new FormData(form);
+            for (const [name, value] of data) {
+               console.log(name, value)
+            }
+            fetch('http://127.0.0.1:3000/sendemail')
+               .then(response => response.json())
+               .then(data => console.log(data));
+         })
+      </script>
+
+<script>
+   var form = document.getElementById('signup-form');
+   form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      for (const [name, value] of data) {
+         console.log(name, value)
+      }
+      fetch('http://127.0.0.1:3000/signup')
+         .then(response => response.json())
+         .then(data => console.log(data));
+   })
+</script>
+
+</body>
+<script src="./main.js"></script>
+</html>

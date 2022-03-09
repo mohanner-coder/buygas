@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyGas</title>
+    <link rel="stylesheet" href="./index.css" type="text/css" />
+    <script src="https://kit.fontawesome.com/4e6fa00cd9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+          
+        <nav>
+           
+            <section class="f-column">
+                <div id="orange-header" class="topmenu">
+                    <div style="height: 100%;" class="container f-row align-items-center">
+                       <!--<div>
+                            Call Us (+234)81-1975-5366
+                        </div>-->
+                        <div>
+                            Contact@Buygas.ng
+                        </div>
+                        <div>
+                            Facebook
+                        </div>
+                        <div>
+                            Twitter
+                        </div>
+                        <div>
+                            Instagram
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="white-header">
+                    <div style="height: 100%;" class="container f-row align-items-center">
+                        
+                        <div >
+                            <img width="100px" height="95px" src="./logo.png" />
+                        </div>
+                        
+                        <div class="f-grow"></div>
+                        <div id="menu" class="f-row align-items-center hide">
+                            <a href="./index.html">Home</a>
+                            <a href="./order-gas.html">Order Gas</a>
+                            <a href="./about-us.html">About Us</a>
+                            <a href="./contact-us.html">Contact Us</a>
+                            <a href="./login.html">Login</a>
+                       
+                        </div>
+
+                        <button class="nav-toggle">
+                            <label for="toggle"><i class="fas fa-bars"></i></label>
+                           
+                        </button>
+                        
+                    </div>
+                </div>
+            </section>
+        </nav>
+    </header>
+        <div id="image-banner" class=" f-row align-items-center justify-content-center">
+            <h1>Contact Us </h1>
+
+        </div>
+        <section>
+
+            <div class="container" id="contact-us-content">
+                <div id="contact-us-form">
+                    <div class="title">
+
+                        <h2>CONTACT US</h2>
+                    </div>
+                    <form id="contact-form" class="form">
+                        <div class="form-items">
+                            <i class="fas fa-user"></i>
+                            <input type="text" class="input" name="username" placeholder="Username">
+
+                        </div>
+
+                        <div class="form-items">
+                            <i class="fas fa-envelope-open-text"></i>
+                            <input type="text" class="input" name="email" placeholder="Email">
+
+                        </div>
+                        <div class="form-items">
+                            <textarea class="input message" name ="message" cols="30" rows="10" placeholder="Message......"></textarea>
+                        </div>
+
+                        <button class="btn">
+                            <i class="fas fa-check"></i>
+                            Submit
+
+                        </button>
+                        <div class="social-icons">
+                            <span class="facebook">
+                                <i class="fab fa-facebook"></i>
+                            </span>
+                            <span class="twitter">
+                                <i class="fab fa-twitter"></i>
+                            </span>
+                            <span class="google">
+                                <i class="fab fa-google"></i>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div id="contact-us-details">
+                    <h2><i style="margin-right: 5px;" class="fa fa-arrow-circle-right"></i>CONTACT DETAILS.</h2>
+                    <div class="content">
+                        <p style=" text-align:justify; line-height:20px;">
+                        <div class="contact">
+                            <ul>
+
+
+
+
+
+
+                                <br>
+
+                                <li><span><i class="fa fa-home"></i>Address:</span> 5b, Abayomi Durosimi-Etti, Marwa,
+                                    Oniru,
+                                    Lagos</li>
+                                <li><span><i class="fa fa-phone"></i>Customer care: </span>08119755366, 08116009617
+                                </li>
+                                <!--<li><span><i class="fa fa-phone"></i>Operations: </span>+234 811 975 5367 
+
+</li>-->
+                                <li><span><i class="fa fa-envelope"></i>Email:</span> contact@buygas.ng</li>
+                                <br>
+                                <br>
+                                <br>
+
+
+
+
+
+
+
+
+                            </ul>
+                        </div>
+
+
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+            </div>
+
+            </div>
+
+
+        </section>
+
+
+
+
+
+
+        <footer id="footer">
+            <nav>
+                <ul class="container f-row align-items-center justify-content-space-between">
+                    <li><a href="About us.docx">About Us</a></li>
+                    <li><a href="./contact-us.html">Contact Us</a></li>
+                    <li><a href="">Privacy</a></li>
+                </ul>
+            </nav>
+            <div class="footer-bottom">
+                &copy; BuyGas.ng |Designed By Victoria Emoka</div>
+        </footer>
+        <script>
+            var form = document.getElementById('contact-form');
+            form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  var data = new FormData(form);
+  for (const [name,value] of data) {
+    console.log(name,value)
+  }
+  fetch('http://127.0.0.1:3000/sendemail')
+  .then(response => response.json())
+  .then(data => console.log(data));
+})
+        </script>
+</body>
+
+<script src="./main.js"></script>
+</html>
